@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>BackboneArtists</title>
+  <%= stylesheet_link_tag    'application', media: 'all' %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+  <div class="header">
+    <div class="artist-logo"></div>
+    <div class="nav">
+      <ul>
+        <li><a href="#artists">ARTIST INDEX</a></li>
+        <li><a href="#artists/new">CREATE</a></li>
+      </ul>
+    </div>
+  </div>
+<div class="content-wrapper">
+  <%= yield %>
+</div>
+
+<script type="text/template" id="artist-profile-template ">
+  <h1 class="<%%= age %>">
+    <%%= name.toUpperCase() %>
+  </h1>
+  <img src="<%%= image_url %>" alt="<%%= name %>">
+  <input class="style <%%= age %>" value="<%%= style.toUpperCase() %>"/>
+</script>
+
+<script type="text/template" id="artist-list-item-template">
+  <%% collection.each(function(artist){ %>
+    <li class="artist <%%= artist.get("age") %>">
+      <a href="#artists/<%%= artist.get("id") %>">
+        <%%= artist.get("name").toUpperCase() %>
+      </a>
+    </li>
+  <%% }) %>
+</script>
+
+<script type="text/template" id="new-artist-view-template">
+  <form action="#">
+    <input type="text" name="name" placeholder="name" />
+    <input type="number" name="age" />
+    <input type="text" name="style" placeholder="style" />
+    <input type="text" name="image_url" placeholder="image url" />
+    <input type="submit" />
+  </form>
+  
+</script>
+
+<%= javascript_include_tag 'application'  %>
+
+</body>
+</html>
