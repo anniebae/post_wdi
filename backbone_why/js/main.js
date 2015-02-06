@@ -1,6 +1,6 @@
 modelOne = {
-  img: 'stylesheets/images/questionmark.jpg', 
-  caption: 'What is the meaning of life?', 
+  img: 'stylesheets/images/questionmark.jpg',
+  caption: 'What is the meaning of life?',
   id: 1
 };
 modelTwo = {
@@ -40,3 +40,15 @@ modelEight = {
 };
 
 modelArray = [modelOne, modelTwo, modelThree, modelFour, modelFive, modelSix, modelSeven, modelEight]
+
+$(function(){
+
+});
+
+moment = new Moment(modelOne);
+momentView = new MomentView({model: moment});
+momentsCollection = new MomentsCollection(modelArray);
+
+console.log(modelOne);
+console.log('moment', moment);
+console.log('models', momentsCollection);
