@@ -1,8 +1,8 @@
 console.log("Moment view");
 
 var MomentView = Backbone.View.extend({
-  el: '#questionmark',
-  template: _.template($('#why-template').html()),
+  el: '#phrase',
+  template: _.template($('#phrase-template').html()),
   events: {
     "click #dbl-exclimation" : "nextMoment",
   },
